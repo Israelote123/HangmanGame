@@ -1,0 +1,49 @@
+body {
+  background-color: #e0e5f6;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+button {
+  height: 30px;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: lightgrey;
+  background-color: white;
+  text-align: center;
+  font-weight: bold;
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #bfbfbf;
+  cursor: pointer;
+}
+
+button:active {
+  border-color: black;
+  background-color: grey;
+  font-weight: normal;
+}
+
+.game {
+  display: none;
+}
+
+.newWords {
+    display: none;
+}
+
+#add-new-words {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #e0e5f6;
+    border: none;
+    outline: none;
+    font-size: 25px;
+}
