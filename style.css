@@ -1,10 +1,14 @@
 body {
-  background-color: #e0e5f6;
+  background-color: #dbdef1;
 }
 
 img {
   display: block;
   margin: 0 auto;
+}
+
+.hangman{
+  height: 365px;
 }
 
 button {
@@ -42,8 +46,40 @@ button:active {
 #add-new-words {
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: #e0e5f6;
+    background-color: #dbdef1;
     border: none;
     outline: none;
     font-size: 25px;
+}
+
+.container {
+  display : flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.letters{
+  width: 32px;
+  height: 40px;
+  border-color: grey;
+  border-style: inset;
+  border-radius: 10px;
+  background-color: #adb6ef;
+}
+
+#hang-input {
+  margin-bottom: 15px;
+  background-color: #dbdef1;
+  text-align: center;
+  border: none;
+  outline: none;
+  font-size: 25px;
+  width: 100%;
+}
+
+.fails {
+  height: 50px;
+  margin-bottom: 25px;
 }

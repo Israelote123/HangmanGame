@@ -19,13 +19,19 @@
         </div>
         <div class="newWords">
             <label for="agrega_palabras">Max. 8 caracteres</label>
-            <input type="text" name="agrega_palabras" id="add-new-words" placeholder="Ingrese una palabra" maxlength="8" pattern="[A-Z]{8}"/>
+            <input type="text" name="agrega_palabras" id="add-new-words" placeholder="Ingrese una palabra" maxlength="8" pattern="[A-Z]{1,8}" oninput="isOk(this);"/>
             <button class="button-new-words" id="save-word">Guardar</button>
             <button class="button-new-words" id="cancel" onclick="cancelNewWord();">Cancelar</button>
         </div>
         <div class="game">
-            <img src="./img/hangmanInitial.jpg" alt="newHangman">
+            <img class="hangman" src="./img/hangman1.jpg" alt="newHangman">
+            <input type="text" name="letra" id="hang-input" placeholder="Ingrese una letra" maxlength="1" pattern="[A-Za-z]{1}" onkeyup="gameInput(this);"/>
             <div class="container"></div>
+            <div class="fails"></div>
+            <div>
+                <button class="startGame" onclick="newGame();">Nuevo juego</button>
+                <button class="back" onclick="backToMenu();">Rendirse</button>
+            </div>
         </div>
     </main>
     <footer></footer>
