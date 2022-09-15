@@ -24,8 +24,8 @@
             <button class="button-new-words" id="cancel" onclick="cancelNewWord();">Cancelar</button>
         </div>
         <div class="game">
-            <img class="hangman" src="./img/hangman1.jpg" alt="newHangman">
-            <input type="text" name="letra" id="hang-input" placeholder="Ingrese una letra" maxlength="1" pattern="[A-Za-z]{1}" onkeyup="gameInput(this);"/>
+            <img class="hangman" src="./img/hangman0.jpg" alt="newHangman">
+            <input type="text" name="letra" id="hang-input" placeholder="Ingrese una letra" maxlength="1" pattern="[A-Za-z]{1}" oninput="isOk(this);" onkeydown="gameInput(event);"/>
             <div class="container"></div>
             <div class="fails"></div>
             <div>

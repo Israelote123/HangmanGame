@@ -1,4 +1,5 @@
 var word = "";
+var error = 0;
 
 //Verificación de lista de palabras
 const wordsHangman = ['HTML', 'CSS', 'REACT', 'NODEJS'];
@@ -38,13 +39,13 @@ let aleatoryWord = () => {
 
 //Input al iniciar el juego
 let gameInput = (userInput) => {
-    var keycode = userInput.keyCode;
-    let letter = userInput.value;
+    var keycode = userInput.key;
+    let letter = document.getElementById('hang-input').value.toUpperCase();
     var placeLetter = 0;
     var i = 0;
 
-    console.log(keycode)
-    if(keycode == '13'){
+    if(keycode == 'Enter'){
+        document.getElementById('hang-input').value = '';
         if(word.indexOf(letter,0) == -1){
             showIncorrectLetter(letter);
         } else {
@@ -54,24 +55,28 @@ let gameInput = (userInput) => {
                 i = placeLetter + 1;
               }
         }
-    } else {
-        isOk(userInput);
     }
 }
 
 //Muestra las letras en su lugar
 let showLetter = (place, letter) => {
-    let element = document.getElementById(`letters${place}`);
+    try{
+    let element = document.querySelector(`#letter${place}`);
     element.textContent = letter;
     element.style.borderStyle = `outset`;
     element.style.backgroundColor = `#c6dff0`;
+    } catch(error) {
+        console.error(error);
+    }
 }
 
 //Muestra las letras que ya usaste
 let showIncorrectLetter = (letter) => {
     let check = document.querySelector('.fails');
-    if(check.value.indexOf(letter,0) == -1){
-        check.value = `${check.value} ${letter}`;
+    if(check.textContent.indexOf(letter,0) == -1){
+        check.textContent = `${check.textContent} ${letter}`;
+        error++;
+        document.querySelector('.hangman').src = `./img/hangman${error}.jpg`;
     }
 }
 
