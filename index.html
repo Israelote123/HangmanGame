@@ -20,7 +20,7 @@
         <div class="newWords">
             <label for="agrega_palabras">Max. 8 caracteres</label>
             <input type="text" name="agrega_palabras" id="add-new-words" placeholder="Ingrese una palabra" maxlength="8" pattern="[A-Z]{1,8}" oninput="isOk(this);"/>
-            <button class="button-new-words" id="save-word">Guardar</button>
+            <button class="button-new-words" id="save-word" onclick="saveNewWord();">Guardar</button>
             <button class="button-new-words" id="cancel" onclick="cancelNewWord();">Cancelar</button>
         </div>
         <div class="game">
