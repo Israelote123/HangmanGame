@@ -7,32 +7,25 @@ window.localStorage.getItem("list") === null
   ? window.localStorage.setItem("list", JSON.stringify(wordsHangman))
   : false;
 
-//Control del menu del juego
-let newGame = () => {
-  document.querySelector(".menu").style.display = `none`;
-  document.querySelector(".game").style.display = `block`;
-  aleatoryWord();
-  error = 0;
-  document.querySelector(".hangman").src = `./img/hangman0.jpg`;
-};
+//Manejo de pop up
+var Alert = new CustomAlert();
 
-let addNewWord = () => {
-  document.querySelector(".menu").style.display = `none`;
-  document.querySelector(".newWords").style.display = `block`;
-};
+function CustomAlert() {
+  this.render = function () {
+    let popUpBox = document.getElementById("popUpBox");
+    let back = document.getElementById("popUpOverlay");
+    back.style.display = "block";
+    popUpBox.style.display = "block";
+    document.getElementById(
+      "closeModal"
+    ).innerHTML = `<button type="button" class="btn btn-outline-success" onclick="retry();">Reintentar</button>`;
+  };
 
-let cancelNewWord = () => {
-  document.querySelector(".menu").style.display = `block`;
-  document.querySelector(".newWords").style.display = `none`;
-};
-
-let backToMenu = () => {
-  document.querySelector(".game").style.display = `none`;
-  document.querySelector(".menu").style.display = `block`;
-  document.querySelector(".container").innerHTML = "";
-  error = 0;
-  document.querySelector(".hangman").src = `./img/hangman0.jpg`;
-};
+  this.ok = function () {
+    document.getElementById("popUpBox").style.display = `none`;
+    document.getElementById("popUpOverlay").style.display = `none`;
+  };
+}
 
 //Elección de palabra al azar
 let aleatoryWord = () => {
@@ -98,11 +91,18 @@ let showIncorrectLetter = (letter) => {
 let checkWin = () => {
   let inputGood = document.querySelector(".container").textContent;
   inputGood = inputGood.split("\n").join("");
-  inputGood == word ? true : false;
+  console.log(inputGood);
+  if (inputGood == word) {
+    Alert.render("Ganaste!!!");
+    document.getElementById("textBox").textContent = "Ganaste!!!";
+  }
 };
 
 let checkLose = () => {
-  error == 9 ? true : false;
+  if (error == 9) {
+    Alert.render("Perdiste");
+    document.getElementById("textBox").textContent = "Perdiste :(";
+  }
 };
 
 //Control de inputs
@@ -114,9 +114,17 @@ let isOk = (data) => {
 };
 
 //Guardado de nuevas palabras
-let saveNewWord = (data) => {
+let saveNewWord = () => {
   let wordList = JSON.parse(window.localStorage.getItem("list"));
-  wordList.push(data.value);
-  window.localStorage.setItem("list", JSON.stringify(wordList))
+  let data = document.getElementById("add-new-words");
+  if (wordList.includes(data.value)) {
+    document.querySelector(".newWordAdded").textContent =
+      "La palabra ya existe";
+  } else {
+    document.querySelector(".newWordAdded").textContent =
+      "Se guardo la nueva palabra";
+    wordList.push(data.value);
+    window.localStorage.setItem("list", JSON.stringify(wordList));
+  }
   data.value = '';
-}
+};

@@ -10,6 +10,13 @@
 <body>
     <nav></nav>
     <main>
+        <div id="popUpOverlay"></div>
+        <div id="popUpBox">
+          <div id="box">
+            <div id="textBox"></div>
+            <div id="closeModal"></div>
+          </div>
+        </div>
         <div class="menu">
             <img src="./img/logo.gif" alt="hangmanGame">
             <div class="menuButtons">
@@ -18,10 +25,11 @@
             </div>
         </div>
         <div class="newWords">
+            <div class="newWordAdded"></div>
             <label for="agrega_palabras">Max. 8 caracteres</label>
             <input type="text" name="agrega_palabras" id="add-new-words" placeholder="Ingrese una palabra" maxlength="8" pattern="[A-Z]{1,8}" oninput="isOk(this);"/>
-            <button class="button-new-words" id="save-word" onclick="saveNewWord();">Guardar</button>
-            <button class="button-new-words" id="cancel" onclick="cancelNewWord();">Cancelar</button>
+            <button class="buttonNewWords" id="save-word" onclick="saveNewWord();">Guardar</button>
+            <button class="buttonNewWords" id="cancel" onclick="cancelNewWord();">Cancelar</button>
         </div>
         <div class="game">
             <img class="hangman" src="./img/hangman0.jpg" alt="newHangman">
@@ -36,5 +44,6 @@
     </main>
     <footer></footer>
     <script src="./app.js"></script>
+    <script src="./menu.js"></script>
 </body>
 </html>

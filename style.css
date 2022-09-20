@@ -85,3 +85,30 @@ button:active {
   height: 50px;
   margin-bottom: 25px;
 }
+
+#popUpBox {
+  width: 500px;
+  height: 500px;
+  overflow: hidden;
+  background: #c7cbe7;
+  box-shadow: 0 0 10px black;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 9999;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+#popUpOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 9;
+  display: none;
+}
