@@ -14,11 +14,12 @@
         <div id="popUpBox">
           <div id="box">
             <div id="textBox"></div>
+            <img class="imagePop" src="./img/win.png" alt="ganaste!!!">
             <div id="closeModal"></div>
           </div>
         </div>
         <div class="menu">
-            <img src="./img/logo.gif" alt="hangmanGame">
+            <img id="logo" src="./img/logoBig.gif" alt="hangmanGame">
             <div class="menuButtons">
                 <button class="startGame" onclick="newGame();">Iniciar juego</button>
                 <button class="addWords" onclick="addNewWord();">Agregar palabras</button>
@@ -27,7 +28,8 @@
         <div class="newWords">
             <div class="newWordAdded"></div>
             <label for="agrega_palabras">Max. 8 caracteres</label>
-            <input type="text" name="agrega_palabras" id="add-new-words" placeholder="Ingrese una palabra" maxlength="8" pattern="[A-Z]{1,8}" oninput="isOk(this);"/>
+            <br/>
+            <input type="text" name="agrega_palabras" id="add-new-words" placeholder="Ingrese una palabra" maxlength="8" pattern="[A-Za-z]{1,8}" oninput="isOk(this);"/>
             <button class="buttonNewWords" id="save-word" onclick="saveNewWord();">Guardar</button>
             <button class="buttonNewWords" id="cancel" onclick="cancelNewWord();">Cancelar</button>
         </div>
@@ -36,9 +38,9 @@
             <input type="text" name="letra" id="hang-input" placeholder="Ingrese una letra" maxlength="1" pattern="[A-Za-z]{1}" oninput="isOk(this);" onkeydown="gameInput(event);"/>
             <div class="container"></div>
             <div class="fails"></div>
-            <div>
-                <button class="startGame" onclick="newGame();">Nuevo juego</button>
-                <button class="back" onclick="backToMenu();">Rendirse</button>
+            <div class="gameButtons">
+                <button class="gameTap" id="newGame" onclick="newGame();">Nuevo juego</button>
+                <button class="gameTap" id="back" onclick="backToMenu();">Rendirse</button>
             </div>
         </div>
     </main>

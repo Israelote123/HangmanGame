@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&display=swap");
+
 body {
   background-color: #dbdef1;
 }
@@ -7,21 +9,27 @@ img {
   margin: 0 auto;
 }
 
-.hangman{
-  height: 365px;
+.hangman {
+  height: 550px;
+}
+
+input {
+  font-family: "Bebas Neue", cursive;
+  text-transform: uppercase;
 }
 
 button {
-  height: 30px;
+  height: 60px;
+  font-size: 20px;
   border-radius: 20px;
   border-style: solid;
   border-color: lightgrey;
   background-color: white;
   text-align: center;
   font-weight: bold;
-  display: block;
   margin: auto;
   margin-bottom: 10px;
+  display: block;
 }
 
 button:hover {
@@ -40,35 +48,40 @@ button:active {
 }
 
 .newWords {
-    display: none;
+  display: none;
+  width: 1000px;
+  margin: 0 auto;
 }
 
 #add-new-words {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: #dbdef1;
-    border: none;
-    outline: none;
-    font-size: 25px;
+  margin-top: 20px;
+  margin-bottom: 70%;
+  background-color: #dbdef1;
+  border: none;
+  outline: none;
+  font-size: 40px;
 }
 
 .container {
-  display : flex;
-  justify-content: space-around;
+  display: flex;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
-.letters{
-  width: 32px;
-  height: 30px;
+.letters {
+  width: 52px;
+  height: 55px;
   border-color: grey;
   border-style: inset;
   border-radius: 10px;
   background-color: #adb6ef;
   padding-top: 10px;
   text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 40px;
 }
 
 #hang-input {
@@ -77,18 +90,24 @@ button:active {
   text-align: center;
   border: none;
   outline: none;
-  font-size: 25px;
+  font-size: 40px;
   width: 100%;
 }
 
 .fails {
-  height: 50px;
-  margin-bottom: 25px;
+  height: 80px;
+    width: 600px;
+    margin: 0 auto;
+    font-size: 30px;
+}
+
+.gameButtons {
+  margin: 0 auto;
 }
 
 #popUpBox {
   width: 500px;
-  height: 500px;
+  height: 450px;
   overflow: hidden;
   background: #c7cbe7;
   box-shadow: 0 0 10px black;
@@ -111,4 +130,111 @@ button:active {
   background: rgba(0, 0, 0, 0.3);
   z-index: 9;
   display: none;
+}
+
+#textBox {
+  font-family: "Bungee Spice", cursive;
+  font-size: 40px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.imagePop {
+  width: 260px;
+  height: 300px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  #logo{
+    width: 260px !important;
+    content: url("./img/logo.gif");
+  }
+}
+
+@media only screen and (max-width: 1410px) {
+  #logo{
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .hangman {
+    height: 365px;
+  }
+
+  button {
+    height: 60px;
+    width: 110px;
+    font-size: 15px;
+  }
+
+  .newWords {
+    width: 620px;
+    margin: 0 auto;
+  }
+
+  #add-new-words {
+    margin-top: 20px;
+    margin-bottom: 60%;
+    font-size: 30px;
+  }
+
+  .fails {
+    height: 50px;
+    width: 425px;
+    font-size: 16px;
+  }
+
+  #hang-input {
+    font-size: 25px;
+  }
+
+  .letters {
+    width: 32px;
+  height: 30px;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  button {
+    height: 30px;
+    width: auto;
+    font-size: 13.3333px;
+    display: block;
+  }
+
+  .newWords {
+    width: 100%;
+  }
+
+  #add-new-words {
+    margin-top: 20px;
+    margin-bottom: 25px;
+  }
+
+  .fails {
+    height: 40px;
+    width: 250px;
+    margin-bottom: 10px;
+  }
+
+  .container {
+    justify-content: space-around;
+  }
+
+  #popUpBox {
+    width: 200px;
+    height: 200px;
+  }
+
+  #textBox {
+    font-size: 16px;
+  }
+
+  .imagePop {
+    width: 100px;
+    height: 120px;
+  }
 }

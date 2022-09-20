@@ -49,7 +49,7 @@ let gameInput = (userInput) => {
   var placeLetter = 0;
   var i = 0;
 
-  if (keycode == "Enter") {
+  if (keycode == "Enter" && letter != "") {
     document.getElementById("hang-input").value = "";
     if (word.indexOf(letter, 0) == -1) {
       showIncorrectLetter(letter);
@@ -73,7 +73,7 @@ let showLetter = (place, letter) => {
     element.style.borderStyle = `outset`;
     element.style.backgroundColor = `#c6dff0`;
   } catch (error) {
-    console.error(error);
+    error;
   }
 };
 
@@ -91,16 +91,19 @@ let showIncorrectLetter = (letter) => {
 let checkWin = () => {
   let inputGood = document.querySelector(".container").textContent;
   inputGood = inputGood.split("\n").join("");
-  console.log(inputGood);
   if (inputGood == word) {
+    audioWin();
     Alert.render("Ganaste!!!");
+    document.querySelector(".imagePop").src = `./img/win.png`;
     document.getElementById("textBox").textContent = "Ganaste!!!";
   }
 };
 
 let checkLose = () => {
   if (error == 9) {
+    audioLose();
     Alert.render("Perdiste");
+    document.querySelector(".imagePop").src = `./img/lose.png`;
     document.getElementById("textBox").textContent = "Perdiste :(";
   }
 };
@@ -117,14 +120,25 @@ let isOk = (data) => {
 let saveNewWord = () => {
   let wordList = JSON.parse(window.localStorage.getItem("list"));
   let data = document.getElementById("add-new-words");
-  if (wordList.includes(data.value)) {
+  if (wordList.includes(data.value.toUpperCase())) {
     document.querySelector(".newWordAdded").textContent =
       "La palabra ya existe";
   } else {
     document.querySelector(".newWordAdded").textContent =
       "Se guardo la nueva palabra";
-    wordList.push(data.value);
+    wordList.push(data.value.toUpperCase());
     window.localStorage.setItem("list", JSON.stringify(wordList));
   }
-  data.value = '';
+  data.value = "";
 };
+
+//Sonidos para el juego
+let audioWin = () =>{
+  const music = new Audio('./sound/win.wav');
+  music.play();
+}
+
+let audioLose = () =>{
+  const music = new Audio('./sound/lose.wav');
+  music.play();
+}
