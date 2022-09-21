@@ -96,6 +96,8 @@ let checkWin = () => {
     Alert.render("Ganaste!!!");
     document.querySelector(".imagePop").src = `./img/win.png`;
     document.getElementById("textBox").textContent = "Ganaste!!!";
+  } else {
+    goodLetter();
   }
 };
 
@@ -140,5 +142,10 @@ let audioWin = () =>{
 
 let audioLose = () =>{
   const music = new Audio('./sound/lose.wav');
+  music.play();
+}
+
+let goodLetter = () =>{
+  const music = new Audio('./sound/point.wav');
   music.play();
 }

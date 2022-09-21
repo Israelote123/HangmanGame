@@ -1,9 +1,15 @@
+//Audio del menu
+const audioMenu = new Audio('./sound/menu.wav');
+audioMenu.play();
+audioMenu.loop = true;
+
 //Control del menu del juego
 let newGame = () => {
   document.querySelector(".menu").style.display = `none`;
   document.querySelector(".game").style.display = `block`;
   aleatoryWord();
   error = 0;
+  audioMenu.pause();
   document.querySelector(".hangman").src = `./img/hangman0.jpg`;
 };
 
@@ -23,6 +29,8 @@ let backToMenu = () => {
   document.querySelector(".container").innerHTML = "";
   error = 0;
   document.querySelector(".hangman").src = `./img/hangman0.jpg`;
+  audioMenu.play();
+  audioMenu.loop = true;
 };
 
 let retry = () => {

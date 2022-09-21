@@ -197,7 +197,7 @@ button:active {
   }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 650px) {
   button {
     height: 30px;
     width: auto;
