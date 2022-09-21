@@ -8,6 +8,7 @@ let newGame = () => {
   document.querySelector(".menu").style.display = `none`;
   document.querySelector(".game").style.display = `block`;
   document.querySelector("footer").style.display = `none`;
+  document.querySelector(".fails").textContent = "";
   aleatoryWord();
   error = 0;
   audioMenu.pause();
@@ -28,6 +29,7 @@ let backToMenu = () => {
   document.querySelector(".game").style.display = `none`;
   document.querySelector(".menu").style.display = `block`;
   document.querySelector(".container").innerHTML = "";
+  document.querySelector(".fails").textContent = "";
   error = 0;
   document.querySelector(".hangman").src = `./img/hangman0.jpg`;
   audioMenu.play();
