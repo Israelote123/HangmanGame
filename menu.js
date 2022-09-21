@@ -1,5 +1,5 @@
 //Audio del menu
-const audioMenu = new Audio('./sound/menu.wav');
+const audioMenu = new Audio("./sound/menu.wav");
 audioMenu.play();
 audioMenu.loop = true;
 
@@ -7,6 +7,7 @@ audioMenu.loop = true;
 let newGame = () => {
   document.querySelector(".menu").style.display = `none`;
   document.querySelector(".game").style.display = `block`;
+  document.querySelector("footer").style.display = `none`;
   aleatoryWord();
   error = 0;
   audioMenu.pause();
@@ -31,6 +32,7 @@ let backToMenu = () => {
   document.querySelector(".hangman").src = `./img/hangman0.jpg`;
   audioMenu.play();
   audioMenu.loop = true;
+  document.querySelector("footer").style.display = `block`;
 };
 
 let retry = () => {

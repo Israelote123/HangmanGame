@@ -135,17 +135,17 @@ let saveNewWord = () => {
 };
 
 //Sonidos para el juego
-let audioWin = () =>{
-  const music = new Audio('./sound/win.wav');
+let audioWin = () => {
+  const music = new Audio("./sound/win.wav");
   music.play();
-}
+};
 
-let audioLose = () =>{
-  const music = new Audio('./sound/lose.wav');
+let audioLose = () => {
+  const music = new Audio("./sound/lose.wav");
   music.play();
-}
+};
 
-let goodLetter = () =>{
-  const music = new Audio('./sound/point.wav');
+let goodLetter = () => {
+  const music = new Audio("./sound/point.wav");
   music.play();
-}
+};
